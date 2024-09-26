@@ -1,1 +1,1 @@
-gcc -o make main.c copy.c
+gcc -o main main.c copy.c
