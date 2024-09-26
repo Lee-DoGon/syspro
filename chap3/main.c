@@ -2,7 +2,7 @@
 
 int mani(void)
 {
-	printf("Hello, World~. SysPrp\n");
+	printf("Hello hello, World~. SysPrp\n");
 
 	return 0;
 }
