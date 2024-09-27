@@ -2,60 +2,35 @@
 #include <string.h>
 #include "copy.h"
 
-char line[5][MAXLINE];
+char line[MAXLINE][MAXLINE];
 char longest[MAXLINE];
 
 int main(void)
 {
 	int len, max = 0;
 
-	int i = 0;
-
-
-	while (i < 5)
-	{
-		fgets(line[i], MAXLINE, stdin);
-
-		/*
-		if (strlen(line[i]) > strlen(line[i+1]))
-		{
-			strcpy(longest, line[i+1]);
-			strcpy(line[i+1], line[i]);
-			strcpy(line[i], longest);
-		}
-		*/
-
-		/*
-		len = strlen(line);
-
-		if (len > max)
-		{
-			max = len;
-			copy(line, longest[i]);
-		}
-		*/
-
-		i++;
-	}
-
-
 	for (int i = 0; i < 5; i++)
 	{
-		for (int j = 0; i < 5; j++)
+		fgets(line[i], MAXLINE, stdin);
+	}
+
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 5; j++)
 		{
-		
-			if (strlen(line[i]) > strlen(line[i+1]))
+			if (strcmp(line[i], line[j]) > 0)
 			{
-				strcpy(longest, line[i+1]);
-				strcpy(line[i+1], line[i]);
-				strcpy(line[i], longest);
+				copy(longest, line[i]);
+				copy(line[i], line[j]);
+				copy(line[j], longest);
 			}
 		}
 	}
 
+
 	for (int i = 0; i < 5; i++)
 	{
-		printf("%s", line[i]);
+		printf("%s\n", line[i]);
 	}
 
 	return 0;
