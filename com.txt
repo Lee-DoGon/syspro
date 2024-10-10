@@ -1,0 +1,57 @@
+
+
+
+*** linux command ***
+
+pwd - where i am
+~ - home dir _ . - now dir _ .. - up dir _ / - root dir
+ls -al - all file list
+
+cd - move direct _ cd .. - move upper dir
+mv - move file
+rm, rmdir - delete file, folder
+make C file - vim (file name)
+make C exe file - gcc -o (exe file name) (file name)
+exe C file - ./(exe file name)
+
+cat - read, write file _ cat > file - make file and write file
+cat -n file - add num file start
+
+git add . _ git commit _ git push _ git pull
+
+cp - copy file (+cp file /dir - copy file in dir, cp -r - copy dir dir)
+mv - move file to dir (mv file dir) or change file name (mv file file1)
+rm - delet file _ rm -r - delet dir _ rmdir - delet dir
+chmod - change mode (rwx rwx rwx _ 7 7 7)
+
+> - com > file - save com result to file
+>> - com >> file - save plus com result to file
+< - com < file - file com command
+<< - ~~~
+com1 | com2 - (ex) ls -al | grep .c - find every .c file)
+
+
+*** make .c _ .o _ exe file ***
+make .o file
+gcc -c main.c
+gcc -c copy.c
+
+make exe file
+gcc -o main main.c copy.c
+
+after make makefile
+make (exe file name)
+
+exe file
+./(exe file)
+
+
+*** vim command ***
+i, write _ :w, save _ yy, copy _ p, put it _ y(number)(direct key), copy num line
+dd, cut off one line _ d(num)(direct key), cut off num line
+:/(find word) + Enter Key + n(find down word) N(find up word)
+:wq, save out _ :q!, no save out
+u, bake write
+
+
+
