@@ -8,54 +8,31 @@ int main(int argc, char* argv[])
 {
 	int fd;
 
-	// read file
-	if ((fd = open(argv[1], O_RDWR)) == -1)
+	// file open
+	fd = open(argv[1], O_RDWR);
+
+	if ((fd) == -1)
 	{
-		perror(argv[1]);
+		perror("error");
+		exit(1);
+	}
+	
+	// file read
+	char buf[1000];
+
+	int	readB = read(fd, buf, sizeof(buf) - 1);
+	
+	if (readB == -1)
+	{
+		perror("error");
+		close(fd);
 		exit(1);
 	}
 
+	buf[readB] = "\0";
+	printf("%s", buf);
 
+	close(fd);
 
-
-	/*
-	FILE *fpr, *fpw;
-
-	if (argc != 3)
-	{
-		fprintf(stderr, "error : %s\n", argv[0]);
-		return 1;
-	}
-
-	if ((fpr = fopen(argv[1], "rb")) == NULL)
-	{
-		fprintf(stderr, "file open error");
-		return 2;
-	}*/
-
-	/*
-	if ((fpw = fopen(argv[2], "wb")) == NULL)
-	{
-		fprintf(stderr, "file open error");
-		return 2;
-	}
-	*/
-
-	/*
-	fseek(fpr, 0L, SEEK_END);
-
-	long l = ftell(fpr);
-	char c;
-
-	for (long i = 1L; i <= l; i++)
-	{
-		fseek(fpr, -i, SEEK_END);
-		c = fgetc(fpw);
-		fputc(c, fpw);
-	}
-
-	fputc('\n', fpw);
-
-	fclose(fpr);
-	fclose(fpw);*/
+	exit(0); // return (0);
 }
