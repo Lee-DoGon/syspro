@@ -7,17 +7,19 @@ pwd - where i am
 ~ - home dir _ . - now dir _ .. - up dir _ / - root dir
 ls -al - all file list
 
+cd - - move before
 cd - move direct _ cd .. - move upper dir
 mv - move file
 rm, rmdir - delete file, folder
 make C file - vim (file name)
 make C exe file - gcc -o (exe file name) (file name)
 exe C file - ./(exe file name)
+history -c - delete all history
 
 cat - read, write file _ cat > file - make file and write file
 cat -n file - add num file start
 
-git add . _ git commit _ git push _ git pull
+git add . _ git commit _ git push _ git pull _ git status
 
 cp - copy file (+cp file /dir - copy file in dir, cp -r - copy dir dir)
 mv - move file to dir (mv file dir) or change file name (mv file file1)
