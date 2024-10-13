@@ -4,13 +4,17 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+#define MAX_LINE 5
+#define MAX_LINE_LEN 50
 
 int main(int argc, char* argv[])
 {
-	int fd;
+	if (argc != 2)
+	{
+		fprintf(stderr, "how to use : %s \n", argv[0]);
 
 	// file open
-	fd = open(argv[1], O_RDWR);
+	int fd =  open(argv[1], O_RDWR);
 
 	if ((fd) == -1)
 	{
@@ -39,23 +43,77 @@ int main(int argc, char* argv[])
 */
 
 
-	printf("Total Line : 4\n");
-	printf("You can choose 1 ~ 4 Line\n");
+	char *saveDivText[MAX_LINE];
+	
+	for (int i = 0; i < MAX_LINE; i++)
+		saveDivText[i] = (char*)malloc(MAX_LINE_LEN);
+
+	printf("Total Line : %d\n", MAX_LINE);
+	printf("You can choose 1 ~ %d Line\n", MAX_LINE);
 	printf("Pls 'Enter' the line to select : ");
 
+
+
+
+
+	char input;
+	//scanf("%s", &input);
 	int num;
 	scanf("%d", &num);
 	printf("\n");
 
+	if (num < 1 || num > MAX_LINE)
+	{
+		fprintf(stderr, "enter onther num betw 1 ~ %d\n", MAX_LINE);
+		close(fd);
+		exit(1);
+	}
 
 
-	char buf[100];
-	int readB = read(fd, &buf, 100);
-	char saveDivText[5][50];
 
-	int i = 0, j =5;
 
-	while (read(fd, buf, sizeof(buf)) > 0)
+
+
+
+	char buf[MAX_LINE_LEN];
+	int lineCount = 0;
+
+	int readFD = read(fd, &buf, sizeof(buf) - 1);
+//	char saveDivText[5][50];
+
+
+
+	while (lineCount < MAX_LINE && readFD > 0)
+	{
+		char *ptr = strtok(buf, "\n");
+
+		while (ptr != NULL && lineCount < MAX_LINE)
+		{
+			strncpy(saveDivText[lineCount], ptr, MAX_LINE_LEN - 1);
+			saveDivText[lineCount][MAX_LINE_LEN - 1] = '\0';
+
+			lineCount++;
+
+			ptr = strtok(NULL, "\n");
+		}
+	}
+
+
+	// print select line
+	printf("%s\n", saveDivText[num - 1]);
+
+
+
+
+
+	for (int i = 0; i < MAX_LINE; i++)
+		free(saveDivText[i]);
+
+
+
+//---------------------------------
+/*
+	while (readB > 0)
 	{
 		char *ptr = strtok(buf, "\n");
 
@@ -68,7 +126,8 @@ int main(int argc, char* argv[])
 
 	for (int i = 0; i < num; i++)
 		printf("%s\n", saveDivText[num]);
-
+*/
+//---------------------------------
 
 
 //---------------------------------
@@ -125,4 +184,6 @@ int main(int argc, char* argv[])
 
 	close(fd);
 	exit(0); // return (0);
+
+	}
 }
