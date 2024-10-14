@@ -19,7 +19,8 @@ history -c - delete all history
 cat - read, write file _ cat > file - make file and write file
 cat -n file - add num file start
 
-git add . _ git commit _ git push _ git pull _ git status
+git status _ git add . _ git commit _ git push
+git fetch _ git status _ git pull
 
 cp - copy file (+cp file /dir - copy file in dir, cp -r - copy dir dir)
 mv - move file to dir (mv file dir) or change file name (mv file file1)
