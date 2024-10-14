@@ -106,6 +106,26 @@ int main(int argc, char* argv[])
 				printf("%s\n", sent[3]);
 			}
 		}
+		else if (in[1] == ',')
+		{
+			if (in[2] == '1')
+				printf("%s\n", sent[0]);
+			else if (in[2] == '2')
+			{
+				printf("%s\n", sent[0]);
+				printf("%s\n", sent[1]);
+			}
+			else if (in[2] == '3')
+			{
+				printf("%s\n", sent[0]);
+				printf("%s\n", sent[2]);
+			}
+			else if (in[2] == '4')
+			{
+				printf("%s\n", sent[0]);
+				printf("%s\n", sent[3]);
+			}
+		}
 		else
 			printf("%s\n", sent[0]);
 	}
@@ -130,6 +150,23 @@ int main(int argc, char* argv[])
 				printf("%s\n", sent[3]);
 			}
 		}
+		else if (in[1] == ',')
+		{
+			if (in[2] == '2')
+			{
+				printf("%s\n", sent[1]);
+			}
+			else if (in[2] == '3')
+			{
+				printf("%s\n", sent[1]);
+				printf("%s\n", sent[2]);
+			}
+			else if (in[2] == '4')
+			{
+				printf("%s\n", sent[2]);
+				printf("%s\n", sent[3]);
+			}
+		}
 		else
 			printf("%s\n", sent[1]);
 	}
@@ -148,6 +185,18 @@ int main(int argc, char* argv[])
 				printf("%s\n", sent[3]);
 			}
 		}
+		else if (in[1] == ',')
+		{
+			if (in[2] == '3')
+			{
+				printf("%s\n", sent[2]);
+			}
+			else if (in[2] == '4')
+			{
+				printf("%s\n", sent[2]);
+				printf("%s\n", sent[3]);
+			}
+		}
 		else
 			printf("%s\n", sent[2]);
 	}
@@ -160,6 +209,13 @@ int main(int argc, char* argv[])
 		{
 			if (in[2] == '4')
 				printf("%s\n", sent[3]);
+		}
+		else if (in[1] == ',')
+		{
+			if (in[2] == '4')
+			{
+				printf("%s\n", sent[3]);
+			}
 		}
 		else
 			printf("%s\n", sent[3]);
