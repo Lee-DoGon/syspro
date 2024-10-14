@@ -5,7 +5,7 @@
 #include <fcntl.h>
 
 #define MAX_LINE 5
-#define MAX_LINE_LEN 50
+#define MAX_LINE_LEN 100
 
 int main(int argc, char* argv[])
 {
@@ -43,45 +43,66 @@ int main(int argc, char* argv[])
 */
 
 
-	char *saveDivText[MAX_LINE];
+//	char *saveDivText[MAX_LINE];
 	
-	for (int i = 0; i < MAX_LINE; i++)
-		saveDivText[i] = (char*)malloc(MAX_LINE_LEN);
+//	for (int i = 0; i < MAX_LINE; i++)
+//		saveDivText[i] = (char*)malloc(MAX_LINE_LEN);
 
-	printf("Total Line : %d\n", MAX_LINE);
-	printf("You can choose 1 ~ %d Line\n", MAX_LINE);
+//	printf("Total Line : %d\n", MAX_LINE);
+//	printf("You can choose 1 ~ %d Line\n", MAX_LINE);
+//	printf("Pls 'Enter' the line to select : ");
+
+
+	printf("\nTotal Line : 4\n");
+	printf("You can choose 1 ~ 4 Line\n");
 	printf("Pls 'Enter' the line to select : ");
 
-
-
-
-
 	char input;
-	//scanf("%s", &input);
-	int num;
-	scanf("%d", &num);
-	printf("\n");
+	scanf("%c", &input);
+//	int num;
+//	scanf("%d", &num);
+//	scanf("%c", &input);
+//	printf("\n");
 
+	/*
 	if (num < 1 || num > MAX_LINE)
 	{
 		fprintf(stderr, "enter onther num betw 1 ~ %d\n", MAX_LINE);
 		close(fd);
 		exit(1);
 	}
-
-
-
-
-
-
+	*/
 
 	char buf[MAX_LINE_LEN];
 	int lineCount = 0;
 
-	int readFD = read(fd, &buf, sizeof(buf) - 1);
+	int readFD = read(fd, buf, sizeof(buf) - 1);
 //	char saveDivText[5][50];
 
 
+
+	// file read
+//	char buf2[1000];
+
+	// read(fild, read file content, buf size)
+//	int	readB = read(fd, buf, sizeof(buf) - 1);
+
+	
+	// '0' read until end of file
+	buf[readFD] = '\0';
+
+	// print text
+
+	if (input == '*')
+		printf("%s", buf);
+
+//---------------------------------
+
+
+
+
+//---------------------------------
+/*
 
 	while (lineCount < MAX_LINE && readFD > 0)
 	{
@@ -104,11 +125,11 @@ int main(int argc, char* argv[])
 
 
 
-
-
 	for (int i = 0; i < MAX_LINE; i++)
 		free(saveDivText[i]);
 
+*/
+//---------------------------------
 
 
 //---------------------------------
