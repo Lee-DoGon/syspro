@@ -1,0 +1,4 @@
+StudentId	Name	Score
+1001001		a		30
+1001002		c		40
+1001003		e		50
