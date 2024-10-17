@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
 	while (c != EOF)
 	{
-		putc(c, stdin);
+		putc(c, stdout);
 		c = getc(fp);
 	}
 
