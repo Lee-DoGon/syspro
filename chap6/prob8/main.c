@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 int main(int argc, char *argv[]) {
-  if (sylink(argv[1], argv[2]) == -1) {
+  if (symlink(argv[1], argv[2]) == -1) {
     exit(1);
   }
 

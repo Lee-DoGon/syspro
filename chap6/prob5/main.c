@@ -1,4 +1,5 @@
 #include <dirent.h>
+#include <string.h>
 #include <grp.h>
 #include <pwd.h>
 #include <stdio.h>
@@ -41,12 +42,12 @@ int main(int argc, char *argv[]) {
 }
 
 void printStat(char *pathname, char *file, struct stat *st) {
-  printf("%5d ", st->st_blocks);
+  printf("%5ld ", st->st_blocks);
   printf("%c%s ", type(st->st_mode), perm(st->st_mode));
-  printf("%3d ", st->st_nlink);
+  printf("%3ld ", st->st_nlink);
   printf("%s %s ", getpwuid(st->st_uid)->pw_name,
          getgrgid(st->st_gid)->gr_name);
-  printf("%9d ", st->st_size);
+  printf("%9ld ", st->st_size);
   printf("%.12s ", ctime(&st->st_mtime) + 4);
   printf("%s\n", file);
 }
@@ -70,7 +71,7 @@ char type(mode_t mode) {
 
 char *perm(mode_t mode) {
   static char perms[10];
-  strcpy(perms, "----------------");
+  strcpy(perms, "--------");
 
   for (int i = 0; i < 3; i++) {
     if (mode & (S_IRUSR >> i * 3))
