@@ -7,7 +7,7 @@ void printFile(FILE *fp, int lineNumP, const char *fileName) {
     int lineNum = 1;
 
     if (lineNumP) {
-        printf("=== %s ===\n", fileName);
+//        printf("=== %s ===\n", fileName);
         printf("%d: ", lineNum);
     }
 
