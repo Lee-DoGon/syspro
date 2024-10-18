@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+<<<<<<< HEAD
 void printFile(FILE *fp, int lineNumP, const char *fileName) {
     int c;
     int lineNum = 1;
@@ -61,6 +62,8 @@ int main(int argc, char *argv[]) {
 #include <stdlib.h>
 #include <string.h>
 
+=======
+>>>>>>> 480818531998da9c1f43bfbb9cb976c90b2423e3
 void printFile(FILE *fp, int lineNumP)
 {
 	int c;
@@ -97,11 +100,6 @@ int main(int argc, char *argv[])
 		{
 			lineNum = 1;
 		}
-//		else
-//		{
-//			if (i > 1)
-//			printf("\n=== %s ===\n", argv[i]);
-//		}
 
 		fp = fopen(argv[1], "r");
 
@@ -113,4 +111,3 @@ int main(int argc, char *argv[])
 		fclose(fp);
 	}
 }
-*/
