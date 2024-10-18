@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-// 1 file
+// 1 file con
 
 int main(int argc, char* argv[])
 {
@@ -22,10 +22,6 @@ int main(int argc, char* argv[])
 	else
 		printf("File read success\n");
 
-
-	printf("Total Line : 4\n");
-	printf("You can choose 1 ~ 4 Line\n");
-	printf("Pls 'Enter' the line to select : ");
 
 	char in[10];
 	scanf("%s", in);
