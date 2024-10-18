@@ -2,27 +2,38 @@
 
 int main(int argc, char *argv[])
 {
-	char c;
-	FILE *fp1, *fp2;
+    char c;
+    FILE *fp1, *fp2;
 
-	if (argc != 3)
-		return 1;
+    if (argc != 3)
+    {
+        fprintf(stderr, "how to use : %s File1 File2\n", argv[0]);
+        return 1;
+    }
 
-	fp1 = fopen(argv[1], "w");
+    fp1 = fopen(argv[1], "r");
+    if (fp1 == NULL)
+    {
+        fprintf(stderr, "File %s Open Error\n", argv[1]);
+        return 2;
+    }
 
+	// "a" - append _ file add
+    fp2 = fopen(argv[2], "a");
+    if (fp2 == NULL)
+    {
+        fprintf(stderr, "File %s Open Error\n", argv[2]);
+        fclose(fp1);
+        return 3;
+    }
 
-	if (fp1 == NULL)
-		return 2;
+    while ((c = fgetc(fp1)) != EOF)
+    {
+        fputc(c, fp2);
+    }
 
-	fp2 = fopen(argv[2], "r");
+    fclose(fp1);
+    fclose(fp2);
 
-
-	while ((c = fgetc(fp1)) != EOF)
-		fputc(c , fp2);
-
-
-	fclose(fp1);
-	fclose(fp1);
-
-	return 0;
+    return 0;
 }
