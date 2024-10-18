@@ -2,15 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-<<<<<<< HEAD
 void printFile(FILE *fp, int lineNumP, const char *fileName) {
     int c;
     int lineNum = 1;
 
-    if (lineNumP) {
-//        printf("=== %s ===\n", fileName);
+    if (lineNumP)
         printf("%d: ", lineNum);
-    }
 
     while ((c = getc(fp)) != EOF) {
         putc(c, stdout);
@@ -25,15 +22,15 @@ void printFile(FILE *fp, int lineNumP, const char *fileName) {
     }
 }
 
+
 int main(int argc, char *argv[]) {
     FILE *fp;
     int lineNumP = 0;
 
     for (int i = 1; i < argc; i++) {
         if (strcmp(argv[i], "-n") == 0) {
-            lineNumP = 1; // 줄 번호 출력 활성화
+            lineNumP = 1;
         } else {
-            // 파일 열기
             fp = fopen(argv[i], "r");
             if (fp == NULL) {
                 fprintf(stderr, "Error opening file %s\n", argv[i]);
@@ -46,7 +43,6 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    // 인자가 없는 경우 표준 입력 처리
     if (argc == 1) {
         printf("Enter text (Ctrl+D to end):\n");
         fp = stdin;
@@ -54,60 +50,4 @@ int main(int argc, char *argv[]) {
     }
 
     return 0;
-}
-
-
-/*
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-=======
->>>>>>> 480818531998da9c1f43bfbb9cb976c90b2423e3
-void printFile(FILE *fp, int lineNumP)
-{
-	int c;
-	int lineNum = 1;
-
-	if (lineNumP)
-		printf("%d: ", lineNum);
-
-	while ((c = getc(fp)) != EOF)
-	{
-		putc(c, stdout);
-
-		if (c == '\n')
-		{
-			lineNum++;
-
-			if (lineNumP)
-				printf("%d: ", lineNum);
-		}
-	}
-}
-
-
-int main(int argc, char *argv[])
-{
-	FILE *fp;
-	int c;
-	int lineNum = 0;
-
-
-	for (int i = 1; i < argc; i++)
-	{
-		if (strcmp(argv[i], '\n') == 0)
-		{
-			lineNum = 1;
-		}
-
-		fp = fopen(argv[1], "r");
-
-		if (fp == NULL)
-			return 1;
-
-		printFile(fp, lineNum);
-
-		fclose(fp);
-	}
 }
