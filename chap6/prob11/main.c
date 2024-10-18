@@ -22,7 +22,8 @@ int main(int argc, char *argv[]) {
   if (argc == 1)
     dir = ".";
   else
-    dir = argv[1];
+	  dir = ".";
+//    dir = argv[1];
 
   if ((dp = opendir(dir)) == NULL) // dir open
     perror(dir);
