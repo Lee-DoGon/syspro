@@ -1,0 +1,2 @@
+cat argv[] file
+cat -n file text -> print num line
