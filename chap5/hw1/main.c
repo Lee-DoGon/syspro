@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-// print selectline
+// read text file print select line
 
 int main(int argc, char* argv[])
 {
