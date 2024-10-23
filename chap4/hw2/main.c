@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+// cat argv[] file
+// cat -n file text -> print num line
+
 void printFile(FILE *fp, int lineNumP, const char *fileName) {
     int c;
     int lineNum = 1;
