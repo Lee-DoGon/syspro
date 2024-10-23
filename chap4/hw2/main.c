@@ -44,7 +44,6 @@ int main(int argc, char *argv[]) {
     }
 
     if (argc == 1) {
-        printf("Enter text (Ctrl+D to end):\n");
         fp = stdin;
         printFile(fp, lineNumP, "stdin");
     }
