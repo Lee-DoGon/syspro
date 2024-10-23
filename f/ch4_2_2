@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+void count_text(FILE *fp, int *line_count, int *word_count, int *char_count) {
+    int c;
+    int in_word = 0; // Flag to indicate if we are in a word
+
+    while ((c = getc(fp)) != EOF) {
+        (*char_count)++; // Count characters
+
+        if (c == '\n') {
+            (*line_count)++; // Count lines
+        }
+
+        if (isspace(c)) {
+            if (in_word) {
+                in_word = 0; // End of a word
+            }
+        } else {
+            if (!in_word) {
+                in_word = 1; // Start of a new word
+                (*word_count)++; // Count words
+            }
+        }
+    }
+}
+
+int main(int argc, char *argv[]) {
+    FILE *fp = stdin; // Default to standard input
+    int line_count = 0, word_count = 0, char_count = 0;
+    int option_lines = 0, option_words = 0, option_chars = 0;
+
+    // Check command line arguments for options
+    for (int i = 1; i < argc; i++) {
+        if (strcmp(argv[i], "-l") == 0) {
+            option_lines = 1;
+        } else if (strcmp(argv[i], "-w") == 0) {
+            option_words = 1;
+        } else if (strcmp(argv[i], "-c") == 0) {
+            option_chars = 1;
+        } else {
+            fp = fopen(argv[i], "r"); // Open the specified file
+            if (fp == NULL) {
+                perror("Error opening file");
+                return 1;
+            }
+        }
+    }
+
+    // Count the text
+    count_text(fp, &line_count, &word_count, &char_count);
+
+    // Print results based on the options
+    if (option_lines) {
+        printf("%d\n", line_count);
+    } else if (option_words) {
+        printf("%d\n", word_count);
+    } else if (option_chars) {
+        printf("%d\n", char_count);
+    } else {
+        printf("Lines: %d\nWords: %d\nCharacters: %d\n", line_count, word_count, char_count);
+    }
+
+    // Close the file if it was opened
+    if (fp != stdin) {
+        fclose(fp);
+    }
+
+    return 0;
+}
