@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+// print text change up down
+
 int main(int argc, char* argv[])
 {
 	int fd;
