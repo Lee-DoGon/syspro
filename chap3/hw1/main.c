@@ -5,7 +5,7 @@
 char line[MAXLINE][MAXLINE];
 char longest[MAXLINE];
 
-// input word len upper print
+// print input word len upper
 
 int main(void)
 {
