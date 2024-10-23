@@ -8,6 +8,8 @@
 #include <sys/types.h>
 #include <time.h>
 
+// make ls commmand
+
 char type(mode_t);
 char *perm(mode_t);
 void printStat(char *, char *, struct stat *, int, int, int);
