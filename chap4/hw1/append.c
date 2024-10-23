@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// file1 = file1 text + file2 test
+
 int main(int argc, char *argv[])
 {
     char c;
