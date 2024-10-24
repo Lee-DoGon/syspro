@@ -111,7 +111,7 @@ int main(int argc, char* argv[])
 
 		for (int i = 0; i < count; i++)
 		{
-			if (par[i] == in)
+	//		if (par[i] == in)
 				printf("%s\n", par[i]);
 		}
 	}
