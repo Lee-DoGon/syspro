@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 		exit(1);
 	}
 
-	if ((fd = open(argv[1], O_WRONLY|O_CREAT, 0640)) == -1)
+	if ((fd = open(argv[1], O_WRONLY|O_CREAT|O_EXCL, 0640)) == -1)
 	{
 		perror(argv[1]);
 
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 	{
 		lseek(fd, (rec.id - START_ID) * sizeof(rec), SEEK_SET);
 
-		write(fd, &rec, sizeof(rec));
+		write(fd, (char*)&rec, sizeof(rec));
 	}
 
 	close(fd);
