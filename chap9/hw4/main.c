@@ -68,7 +68,8 @@ int main() {
                 if (child == -1) {
                     perror("Wait failed");
                 } else {
-                    printf("[%d] Child process %d finished with status %d\n", getpid(), child, WEXITSTATUS(status));
+                    printf("Child process end %d SUCCESS\n", child);
+                    //printf("[%d] Child process %d finished with status %d\n", getpid(), child, WEXITSTATUS(status));
                 }
             }
         }
