@@ -17,11 +17,11 @@ int main() {
     char input[1024];
     char *args[MAXARG];
     char *token;
-    pid_t pid;
-    int background;
+    pid_t pid, child;
+    int background, status;
 
     while (1) {
-        printf("Pis input cm : ");
+        printf("[Shell] ");
         fflush(stdout);
 
         if (!fgets(input, sizeof(input), stdin)) {
@@ -48,6 +48,8 @@ int main() {
             break;
         }
 
+        printf("[%d] Parent process start\n", getpid());
+        
         pid = fork();
         
         if (pid < 0) {
@@ -62,7 +64,12 @@ int main() {
             }
         } else {
             if (!background) {
-                waitpid(pid, NULL, 0);
+                child = wait(&status);
+                if (child == -1) {
+                    perror("Wait failed");
+                } else {
+                    printf("[%d] Child process %d finished with status %d\n", getpid(), child, WEXITSTATUS(status));
+                }
             }
         }
     }
