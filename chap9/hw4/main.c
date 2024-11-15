@@ -21,7 +21,7 @@ int main() {
     int background;
 
     while (1) {
-        printf("[Shell] ");
+        printf("Pis input cm : ");
         fflush(stdout);
 
         if (!fgets(input, sizeof(input), stdin)) {
