@@ -41,7 +41,7 @@ void print_stack(struct node *top) {
 
     struct node *p = top;
     while (p != NULL) {
-        printf("%d ", p->data);
+        printf("%d\n", p->data);
         p = p->next;
     }
     printf("\n");
