@@ -47,7 +47,7 @@ void print_queue(struct node *head) {
 
     struct node *p = head;
     while (p != NULL) {
-        printf("%d ", p->data);
+        printf("%d\n", p->data);
         p = p->next;
     }
     printf("\n");
@@ -64,10 +64,10 @@ int main() {
     printf("Print queue\n");
     print_queue(head);
 
-    delet(&head, &tail);
+    // delet(&head, &tail);
 
-    printf("\n");
-    print_queue(head);
+    // printf("\n");
+    // print_queue(head);
 
     return 0;
 }
