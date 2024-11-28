@@ -3,36 +3,43 @@
 #include <signal.h>
 #include <unistd.h>
 
-void alarmHandler();
-struct sigaction newact;
+void alarmHandler(int signo);
 void sigint_handler(int signo);
-
+void signal_my(int signo, void (*handler)(int));
 
 int main()
 {
-	signal(SIGALRM, alarmHandler);
-	alarm(5);
+    signal_my(SIGALRM, alarmHandler);
+    alarm(5);
 
-	short i = 0;
+    short i = 0;
 
-	while (1)
-	{
-		sleep(1);
-		i++;
-		printf("%d second\n", i);
-	}
-	printf("end\n");
+    while (1)
+    {
+        sleep(1);
+        i++;
+        printf("%d second\n", i);
+    }
+
+    printf("end\n");
 }
 
+void signal_my(int signo, void (*handler)(int))
+{
+    struct sigaction newact;
+    
+    newact.sa_handler = handler;
+    sigemptyset(&newact.sa_mask);
+    newact.sa_flags = 0;
+
+    if (sigaction(signo, &newact, NULL) == -1) {
+        perror("sigaction");
+        exit(1);
+    }
+}
 
 void alarmHandler(int signo)
 {
-	printf("Wake up\n");
-	exit(0);
+    printf("Wake up\n");
+    exit(0);
 }
-
-/*
-void sigint_hadler(int signo)
-{
-	sigaction(signal, NULL, NULL);
-}*/
