@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <ctype.h>
+#include <sys/wait.h>
 
 #define MAXLINE 100
 
@@ -21,19 +22,17 @@ int main() {
         close(fd2[0]);
         close(fd2[1]);
 
-        // 사용자로부터 문자열 입력 받기
         printf("input string: ");
         fgets(input, MAXLINE, stdin);
         input[strcspn(input, "\n")] = 0;
 
         write(fd1[1], input, strlen(input) + 1);
-        close(fd1[1]); // 쓰기 끝 닫기
+        close(fd1[1]);
 
         exit(0);
     }
 
     if ((pid2 = fork()) == 0) {
-        // 두 번째 자식 프로세스
         close(fd1[1]);
         close(fd2[0]);
 
@@ -45,7 +44,7 @@ int main() {
         }
 
         printf("%s\n", input);
-        close(fd2[1]); // 쓰기 끝 닫기
+        close(fd2[1]);
         exit(0);
     }
 
