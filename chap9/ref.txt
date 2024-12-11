@@ -1,1 +1,63 @@
-d
+p1
+1
+use getpid(), fork()
+cheack return val
+2
+make chi, print PID
+3
+use fork() 2 chi
+print PID
+
+
+p2
+1
+use wait()
+until chi end
+2
+1+print return val
+
+
+p3
+1
+use fork() make chi pro
+execl(), echo command
+2
+make 3 chi pro
+print 3 command
+3
+use execvp(), print command
+
+p4
+make system()
+print 3 command
+
+p5
+1
+use dup2()
+2
+print command
+
+p6
+use getpgrp()
+print PID, GID
+2
+use setpgid()
+print PID, GID
+
+h1
+& bakegriund
+
+h2
+kill
+
+h3
+make [shell]
+	print
+command1
+com1; com2; com3
+cmd &
+> <
+
+h4
+h3 + exec
+
