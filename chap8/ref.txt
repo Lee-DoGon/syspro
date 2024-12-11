@@ -1,1 +1,33 @@
-d
+p1
+print input arguents
+
+p2
+print environ
+
+p3
+use getenv()
+print "home" "shell" "path"
+
+p4
+use exit handler, Atexit()
+
+p5
+use
+getpid() -> print proID
+getppid() -> print parID
+
+p6
+use
+getuid() -> print proID
+geteuid() -> print parID
+getgid()  -> print group proID
+getegid()  -> print group parID
+
+h1
+print input command
+-i
+-u
+-g
+-p
+-e
+
