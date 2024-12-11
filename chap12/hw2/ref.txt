@@ -1,0 +1,3 @@
+2 chi pro
+1 chi pro : input string -> send 2 chi pro
+2 chi pro : string -> STRING
