@@ -1,1 +1,30 @@
-d
+p1
+send data chi->par
+
+p2
+print command
+
+p3
+print input command
+
+p4
+print [shell] input command
+
+p5
+use popen() input command print
+
+p6
+no name pipe, name pipe
+
+h1
+print send, recv pipe PID
+
+h2
+2 chi pro
+1 chi pro : input string -> send 2 chi pro
+2 chi pro : string -> STRING
+
+h3
+hw2 + pipe
+command print
+
